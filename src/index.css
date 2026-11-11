@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+  --font-serif: 'Times New Roman', Times, Georgia, serif;
+
+  /* Premium SaaS Legal-Tech Palette (Harvey AI / LexisNexis Inspiration) */
+  --color-canvas-base: #f8fafc;
+  --color-surface-card: #ffffff;
+  --color-surface-subtle: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+
+  --color-legal-navy: #0f172a;
+  --color-legal-navy-light: #1e293b;
+  --color-legal-blue: #1e40af;
+  --color-legal-gold: #b45309;
+  --color-legal-gold-light: #fef3c7;
+
+  --color-border-subtle: #e2e8f0;
+  --color-border-default: #cbd5e1;
+  --color-border-strong: #94a3b8;
+}
+
+:root {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(30, 64, 175, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(180, 83, 9, 0.02) 0%, transparent 40%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-color: #0b0f19;
+  color: #f1f5f9;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.04) 0%, transparent 40%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Legal Terminal Card with whisper-quiet borders */
+.legal-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .legal-card {
+  background-color: #0f172a;
+  border-color: #1e293b;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.legal-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+}
+
+.dark .legal-card:hover {
+  border-color: #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* Verbatim Statute Quote Callout */
+.statute-quote {
+  border-left: 3px solid #1e40af;
+  background: linear-gradient(90deg, #f0f7ff 0%, #ffffff 100%);
+  font-family: var(--font-serif);
+}
+
+.dark .statute-quote {
+  border-left: 3px solid #3b82f6;
+  background: linear-gradient(90deg, #172554 0%, #0f172a 100%);
+}
+
+/* Official Citation Pill */
+.citation-pill {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.dark .citation-pill {
+  background-color: rgba(30, 58, 138, 0.3);
+  color: #93c5fd;
+  border-color: #1e3a8a;
+}
+
+/* Custom Scrollbar for crisp SaaS aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Print Styles for Appeal Drafter */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
